@@ -1,4 +1,4 @@
-// create the team
+// create the html by passing in the 'team' array from index.js
 const createTeam = team => {
 
     // build manager html
@@ -59,7 +59,7 @@ const createTeam = team => {
     };
 
     const html = [];
-
+    // filters through the 'team' array and adds the correct html block ot the 'html' array
     html.push(team
         .filter(employee => employee.getRole() === "Manager")
         .map(manager => createManager(manager))
@@ -74,7 +74,7 @@ const createTeam = team => {
         .map(intern => createIntern(intern))
         .join("")
     );
-
+// join it all together and return
     return html.join("");
 
 }

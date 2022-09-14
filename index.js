@@ -1,15 +1,16 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const createTeam = require("./src/template.js")
-
+// bring in the Class files
 const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 
+//  all of the emplpyee info from the prompts gets pushed to this array
 team = [];
 
 function run () {
-
+// asks for info via prompt
   function buildTeam () {
     inquirer.prompt([{
       type: "list",
@@ -136,7 +137,7 @@ function run () {
         });
     
       }
-  
+  // builds the finished html and writes it out to the dist directory
       function buildSite () {
         fs.writeFileSync('./dist/team.html', createTeam(team), "UTF-8")
     
